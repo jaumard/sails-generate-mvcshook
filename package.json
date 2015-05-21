@@ -1,11 +1,8 @@
 {
   "name": "sails-generate-mvcshook",
   "version": "0.10.0",
-  "description": "sails generate mvcshook",
+  "description": "Under dev, do not use for now. sails generate mvcshook",
   "main": "Generator.js",
-  "scripts": {
-    "test": "mocha"
-  },
   "keywords": [
     "mvcshook",
     "generator",

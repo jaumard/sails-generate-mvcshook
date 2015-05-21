@@ -55,14 +55,16 @@ module.exports = {
 
     // Attach defaults
     _.defaults(scope, {
-      createdAt: new Date()
+      createdAt: new Date(),
+      name: scope.args[0].toLowerCase()
     });
 
     // Decide the output filename for use in targets below:
-    scope.filename = scope.args[0];
-
-    // Add other stuff to the scope for use in our templates:
-    scope.whatIsThis = 'an example file created at ' + scope.createdAt;
+    scope.filename = scope.args[0].toLowerCase();
+    if (scope.filename.indexOf("sails-hook") == -1) {
+      scope.filename = "sails-hook-" + scope.filename;
+    }
+    scope.rootPath += "/" + scope.filename;
 
     // When finished, we trigger a callback with no error
     // to begin generating files/folders as specified by
@@ -77,20 +79,25 @@ module.exports = {
    */
 
   targets: {
+    './': {
+      exec: function (scope, cb) {
+        console.log('Running generator (sails-generate-mvcshook) @ `' + scope.rootPath + '`...');
+        cb();
+      }
+    },
 
-    // Usage:
-    // './path/to/destination.foo': { someHelper: opts }
+    './api/controllers/': {folder: {}},
+    './api/models/': {folder: {}},
+    './api/services/': {folder: {}},
+    './api/policies/': {folder: {}},
+    './views/': {folder: {}},
+    './assets/': {folder: {}},
+    './config/': {folder: {}},
+    './scripts/': {folder: {}},
+    './index.js': {template: 'hook/index.js'},
+    './package.json': {template: 'hook/package.json'},
+    './scripts/postinstall.js': {template: 'hook/scripts/postinstall.js'}
 
-    // Creates a dynamically-named file relative to `scope.rootPath`
-    // (defined by the `filename` scope variable).
-    //
-    // The `template` helper reads the specified template, making the
-    // entire scope available to it (uses underscore/JST/ejs syntax).
-    // Then the file is copied into the specified destination (on the left).
-    './:filename': {template: 'example.template.js'},
-
-    // Creates a folder at a static path
-    './hey_look_a_folder': {folder: {}}
 
   },
 
