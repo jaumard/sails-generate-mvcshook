@@ -1,7 +1,7 @@
 {
   "name": "sails-generate-mvcshook",
-  "version": "0.10.0",
-  "description": "Under dev, do not use for now. sails generate mvcshook",
+  "version": "0.1.0",
+  "description": "Installable hook generator that can import new models, controllers, services, policies, views and assets to an existing Sails project",
   "main": "Generator.js",
   "keywords": [
     "mvcshook",
