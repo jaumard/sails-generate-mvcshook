@@ -1,0 +1,47 @@
+{
+  "name": "sails-generate-mvcshook",
+  "version": "0.10.0",
+  "description": "sails generate mvcshook",
+  "main": "Generator.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "mvcshook",
+    "generator",
+    "sails",
+    "generate",
+    "plugin",
+    "mvc",
+    "mvcs",
+    "hook",
+    "installable hook",
+    "plugin",
+    "hook-models",
+    "hook-controllers",
+    "hook-services",
+    "hook-config",
+    "hook-policies",
+    "models",
+    "controllers",
+    "services",
+    "config",
+    "policies"
+  ],
+  "author": "balderdashy",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": ">=2.4.x",
+    "merge-defaults": ">=0.1.0"
+  },
+  "devDependencies": {
+    "sails-generate": "*",
+    "reportback": "*",
+    "fs-extra": "*"
+  },
+  "sailsGenerator": {
+    "type": "mvcshook",
+    "behavior": "overrides `sails generate mvcshook`",
+    "sailsVersion": "~0.10.0"
+  }
+}
